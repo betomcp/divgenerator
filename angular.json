@@ -122,8 +122,13 @@
               "devServerTarget": "css-generator:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "css-generator"
 }
