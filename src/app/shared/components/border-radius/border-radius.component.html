@@ -1,0 +1,59 @@
+<div (mouseenter)="getTemplateDiv(templateDiv)" class="component_body" #bodyDiv>
+  <div class="change_body_background"><input [(ngModel)]="bgInputValue" [value]="bgInputValue"
+     (click)="changeBody(bodyDiv)" type="color"></div>
+  <div class="container row" #containerDiv>
+    <div class="col-6 m-3">
+      <div class="template" #templateDiv></div>
+    </div>
+    <div class="col-6 div_css_group">
+      <div class="css">
+        <p>border-radius:</p>
+        <input [value]="brValue" #brInput type="text" (keyup)="changeBorder(templateDiv, brInput.value)">
+        <p> {{onType}};</p>
+        <button (click)="changeType(templateDiv, brInput)">{{disableType}}</button>
+        <input #rangeBd [(ngModel)]="rangeValue" id="range-bd" type="range" min="0" max="240"
+          [value]="rangeValue"
+          (mousedown)="changeBorder(templateDiv, rangeValue)"
+          (mouseup)="changeBorder(templateDiv, rangeValue)" >
+      </div>
+      <div class="css">
+        <p>box-shadow:</p>
+
+        <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bxValueOne" [value]="bxValueOne" type="text" #bxInput1>
+        <p>{{onTypeBx}}</p>
+
+        <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bxValueTwo" [value]="bxValueTwo" type="text" #bxInput2>
+        <p>{{onTypeBx}}</p>
+
+        <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bxValueThre" [value]="bxValueThre" type="text" #bxInput3>
+        <p>{{onTypeBx}}</p>
+
+        <input [(ngModel)]="colorValue" [value]="colorValue" id="bx-color" type="color"
+        (click)="getTemplateDiv(templateDiv)">
+        ;
+      </div>
+      <div class="css">
+        <p>background-color:</p>
+        <input [(ngModel)]="bgColorTemplateDiv" (click)="getTemplateDiv(templateDiv)"
+         id="bg-color" [value]="bgColorTemplateDiv" #bgTemplateInput type="color">
+      </div>
+      <div class="css">
+        <p>border-color:</p>
+        <input [(ngModel)]="bdColorTDiv" (click)="getTemplateDiv(templateDiv)"
+         id="bd-color" [value]="bdColorTDiv" type="color">
+      </div>
+      <div class="css">
+        <p>border-style:</p>
+        <select [(ngModel)]="activeBdStyle" name="" id="" (click)="getTemplateDiv(templateDiv)">
+          <option *ngFor="let item of bdStyles">{{item}}</option>
+        </select>
+      </div>
+      <div class="css">
+        <p>border-width:</p>
+        <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bdWidth" type="text" [value]="bdWidth">
+        <p>px;</p>
+      </div>
+    </div>
+  </div>
+</div>
+
