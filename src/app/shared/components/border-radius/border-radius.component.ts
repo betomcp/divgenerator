@@ -15,18 +15,20 @@ export class BorderRadiusComponent implements OnInit, DoCheck {
 
   public rangeValue = 0;
   public brValue: string = "0";
-  public colorValue: string = "";
+  public bxColorValue: string = "#000000";
   public bgInputValue: string = "";
-  public bgColorTemplateDiv: string = "";
-  public bdColorTDiv: string = "";
+  public bgColorTemplateDiv: string = "#2a3347";
+  public bdColorTDiv: string = "#000000";
   public activeBdStyle: string = "solid";
   public bdWidth: string = "2";
+
 
   public bdStyles: Array<string> = ['solid', 'none', 'dashed'];
 
   public bxValueOne: string = "0";
   public bxValueTwo: string = "0";
   public bxValueThre: string = "0";
+  public bxString = "0px 0px 0px #000000"
 
   public templateDivAux: any = null;
   public bodyDivAux: any = null;
@@ -36,10 +38,9 @@ export class BorderRadiusComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     if(this.templateDivAux != null){
 
-      const boxShadowString: string = `${this.bxValueOne + this.onTypeBx}
-        ${this.bxValueTwo + this.onTypeBx} ${this.bxValueThre + this.onTypeBx} ${this.colorValue}`;
+      this.bxString  = `${this.bxValueOne + this.onTypeBx} ${this.bxValueTwo + this.onTypeBx} ${this.bxValueThre + this.onTypeBx} ${this.bxColorValue}`;
 
-      this.templateDivAux.style.boxShadow = boxShadowString;
+      this.templateDivAux.style.boxShadow = this.bxString;
       this.templateDivAux.style.backgroundColor = this.bgColorTemplateDiv;
       this.templateDivAux.style.borderColor = this.bdColorTDiv;
       this.templateDivAux.style.borderStyle = this.activeBdStyle;
@@ -96,16 +97,17 @@ export class BorderRadiusComponent implements OnInit, DoCheck {
       this.onTypeBx = "%"
       this.disableTypeBx = "px"
     }
-    //this.changeBoxShadow(div)
     this.templateDivAux = div;
   }
 
-  // changeBoxShadow(div: any){
-  //   const boxShadowString: string = `${this.bxValueOne + this.onTypeBx}
-  //    ${this.bxValueTwo + this.onTypeBx} ${this.bxValueThre + this.onTypeBx} ${this.colorValue}`;
-
-  //   div.style.boxShadow = boxShadowString;
-  //   this.templateDivAux = div;
-  // }
+  testsCopy(inputElement: any){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+    inputElement.blur();
+  }
 
 }
+
+
+

@@ -28,7 +28,7 @@
         <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bxValueThre" [value]="bxValueThre" type="text" #bxInput3>
         <p>{{onTypeBx}}</p>
 
-        <input [(ngModel)]="colorValue" [value]="colorValue" id="bx-color" type="color"
+        <input [(ngModel)]="bxColorValue" [value]="bxColorValue" id="bx-color" type="color"
         (click)="getTemplateDiv(templateDiv)">
         ;
       </div>
@@ -44,7 +44,7 @@
       </div>
       <div class="css">
         <p>border-style:</p>
-        <select [(ngModel)]="activeBdStyle" name="" id="" (click)="getTemplateDiv(templateDiv)">
+        <select [(ngModel)]="activeBdStyle" class="select_styles" name="" id="" (click)="getTemplateDiv(templateDiv)">
           <option *ngFor="let item of bdStyles">{{item}}</option>
         </select>
       </div>
@@ -53,7 +53,25 @@
         <input (click)="getTemplateDiv(templateDiv)" [(ngModel)]="bdWidth" type="text" [value]="bdWidth">
         <p>px;</p>
       </div>
+
+      <!-- TEXTAREA PRECISA FICAR COM O TEXTO NA POSIÇÃO CORRETA QUE FICARÁ NA TELA -->
+
+      <div class="css div_copy_btn">
+        <button (click)="testsCopy(textArea)"><i class='bx bxs-copy'></i></button>
+      </div>
+      <textarea spellcheck="false" #textArea class="css_copy_paste">
+border-radius: {{ brValue + onType}};
+box-shadow: {{ bxString }};
+background-color: {{ bgColorTemplateDiv }};
+border-color: {{ bdColorTDiv }};
+border-style: {{ activeBdStyle }};
+border-width: {{ bdWidth }}px;
+      </textarea>
+
+
     </div>
   </div>
 </div>
+
+
 
